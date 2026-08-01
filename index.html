@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — BABA Real-Time Chat Translator</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1b1d21;
+    --muted: #5d6570;
+    --rule: #e2e5ea;
+    --accent: #b81f2d;
+    --box: #f6f7f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171b;
+      --fg: #e8eaed;
+      --muted: #9aa2ae;
+      --rule: #2c3037;
+      --accent: #ff6b78;
+      --box: #1d2026;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px 80px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 780px; margin: 0 auto; }
+  header { padding: 48px 0 24px; border-bottom: 2px solid var(--accent); }
+  h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 12px; }
+  h2 {
+    font-size: 1.15rem;
+    margin: 44px 0 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  h3 { font-size: 1rem; margin: 24px 0 8px; }
+  p, li { margin: 0 0 12px; }
+  ul, ol { padding-left: 22px; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 0.9rem; line-height: 1.9; margin: 0; }
+  .meta strong { color: var(--fg); font-weight: 600; }
+  .lang { margin: 16px 0 0; font-size: 0.9rem; }
+  .box {
+    background: var(--box);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 16px 20px 4px;
+    margin: 16px 0;
+  }
+  .box h3 { margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 600; }
+  .scroll { overflow-x: auto; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.9em;
+    background: var(--box);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1px 5px;
+    word-break: break-all;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Privacy Policy</h1>
+  <p class="meta">
+    <strong>BABA Real-Time Chat Translator</strong><br>
+    Publisher: BABA SOFTWARE, Republic of Korea<br>
+    Effective date: 2 August 2026<br>
+    Contact: <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>
+  </p>
+  <p class="lang"><a href="ko.html">한국어로 보기</a></p>
+</header>
+
+<h2>1. Summary</h2>
+
+<p>BABA Real-Time Chat Translator (&ldquo;the app&rdquo;) reads a rectangle of your screen that you position yourself, recognizes the messages inside it, and translates them. This section states the whole of it in short; the sections that follow give the detail.</p>
+
+<ul>
+  <li><strong>BABA SOFTWARE operates no servers.</strong> The app contains no address belonging to us. Nothing is sent to us, and we receive no information about you or your conversations.</li>
+  <li><strong>The app captures one rectangle, not your screen.</strong> You choose where it is and how big it is, and capture happens while translation is running.</li>
+  <li><strong>Translation requires sending your message text to one outside service</strong> &mdash; the one you chose and configured with your own API key. That service is the only recipient.</li>
+  <li><strong>The captured picture stays on your device</strong> unless you use automatic language detection or a language Windows cannot read. In that case the picture is sent to Google. Google is the only service the app can send a picture to. <a href="#images">Section 4</a> explains how to avoid it.</li>
+  <li><strong>Nothing captured, recognized or translated is written to disk.</strong> The only file the app writes is its own settings file.</li>
+  <li><strong>No analytics, no crash reporting, no update checks, no licence checks.</strong></li>
+</ul>
+
+<h2 id="capture">2. Screen capture</h2>
+
+<p>The app's window has a transparent opening &mdash; the reading hole &mdash; which you place over the message list of your chat program. The rectangle of the screen behind that opening is what the app captures. Its position and size are yours to set. Nothing outside it is captured, and the app never captures the whole screen.</p>
+
+<p>Capture happens while translation is running, which begins when you press the start button and ends when you press it again. The interval between captures is 0.7 seconds by default and can be changed in settings.</p>
+
+<p>There is one further capture, and it is stated here so the description is complete. When you stop translating, the translations already on screen are deliberately left in place so you can finish reading them. While they remain, the app takes a 48&times;48 pixel thumbprint of the same rectangle once per second and compares it with the previous one, so that it can remove those translations when the conversation underneath them has moved on. No text recognition is performed on these, and nothing about them is transmitted. They are compared on your device and discarded.</p>
+
+<p><strong>Captured images exist only in your computer's memory.</strong> There is no point in the app at which a captured image is written to a file, a log, a cache, or a temporary file.</p>
+
+<h2 id="area">3. The app captures an area, not a window</h2>
+
+<p>This is a limitation you should understand before you use the app, and we state it plainly rather than leaving it to be discovered.</p>
+
+<p>Because the app captures a rectangle of the screen rather than one specific window, <strong>anything that comes to sit in front of that rectangle is captured as well.</strong> The app watches which window occupies the area and stops reading when a different program covers it, but that watching is not complete:</p>
+
+<ul>
+  <li>There is a gap between another window appearing over the area and the app noticing it, no longer than one scan interval.</li>
+  <li>Other windows of the <em>same</em> program are allowed through on purpose, because a messenger that opens each conversation in its own window is the user doing what they meant to do.</li>
+  <li><strong>For messengers used inside a web browser this watching is largely ineffective.</strong> The program occupying the area is the browser, so other tabs and other windows of that same browser pass the check. Tabs cannot be distinguished from outside the browser. When the app detects that the target is a browser, it tells you once per session.</li>
+</ul>
+
+<p><strong>What you can do:</strong> keep the reading hole tight around the message list, check what is behind it before you press start, and press stop when you have finished the conversation.</p>
+
+<h2 id="images">4. When a picture of your screen leaves your device</h2>
+
+<p>The app has two ways of turning the captured picture into text, and which one is used decides whether the picture itself is transmitted.</p>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Situation</th><th>What reads the picture</th><th>Does the picture leave your device?</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>You have named the language to read, and Windows has a recognizer installed for it</td>
+      <td>The recognizer built into Windows, on your device</td>
+      <td><strong>No.</strong> The picture is not transmitted anywhere.</td>
+    </tr>
+    <tr>
+      <td>The language is set to automatic detection, or Windows has no recognizer for the language you named</td>
+      <td>Google's model, which is shown the picture</td>
+      <td><strong>Yes.</strong> The captured image is sent to Google as a PNG.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Before an image is sent it is scaled so that its longest edge is at most 1024 pixels.</p>
+
+<p><strong>Google is the only service that can receive an image.</strong> No image is sent to Anthropic, OpenAI, DeepL, Groq, or to an endpoint whose address you supplied yourself; those receive text only. If the service you selected cannot be shown a picture and Windows cannot read the language you asked for, the app stops and tells you so, rather than sending the picture somewhere else.</p>
+
+<div class="box">
+  <h3>How to keep images on your device</h3>
+  <p>In the app, set the language to read to a specific language rather than &ldquo;detect automatically&rdquo;, and make sure Windows has the recognizer for that language installed. Reading then happens entirely on your computer and no image is transmitted.</p>
+  <p>The recognized <em>text</em> is still sent to your chosen translation service, as described in the next section. Choosing a language changes whether the picture is sent; it does not make the app translate without a service.</p>
+</div>
+
+<h2 id="third-parties">5. Transmission to third parties</h2>
+
+<p>The app translates by calling one outside service. You choose which, and you supply your own account credentials for it. Only the selected service is contacted.</p>
+
+<p>The services the app can be pointed at are: <strong>Anthropic, OpenAI, Google, DeepL, Groq,</strong> and one further option for an OpenAI-compatible service whose <strong>address you type in yourself</strong> &mdash; in that case the data is sent to whatever address you entered, which may be a server operated by you or by a third party of your choosing.</p>
+
+<h3>What is sent</h3>
+<ul>
+  <li>The recognized text of the messages inside the reading hole.</li>
+  <li>The text of your own message, when you use the feature that translates what you type.</li>
+  <li>The app's translation instructions, which name the source and target languages and the tone you selected.</li>
+  <li>Your API key, as the request's authentication header.</li>
+  <li>To Google only, and only in the situation described in section 4: the captured image.</li>
+</ul>
+
+<h3>What is sent only when you ask for it</h3>
+<ul>
+  <li>A request for the list of models the service offers, when you refresh that list in settings. It carries your API key and nothing else.</li>
+  <li>A short connection test, when you test the connection in settings.</li>
+</ul>
+
+<p><strong>BABA SOFTWARE is not a recipient of any of this.</strong> The app has no server of ours to send it to.</p>
+
+<p>What each service does with what it receives is governed by that service's own privacy policy and terms, not by this one. For the services with a fixed address, the app links to their policies in its settings screen so you can read them before choosing. For the option where you supply the address, no policy can be linked, because the address is yours.</p>
+
+<h2 id="clipboard">6. Clipboard</h2>
+
+<p>The app uses the Windows clipboard for two separate purposes, and for nothing else.</p>
+
+<h3>6.1 Waiting for an API key during key registration</h3>
+
+<p>Two of the services offer a registration flow, reached by the <strong>Get API key</strong> button, that opens your browser at the service's key page and then waits for you to copy the key. While that flow is on screen the app reads the clipboard every 0.5 seconds. Clipboard content larger than 256 KB is not examined.</p>
+
+<ul>
+  <li><strong>When the watching starts.</strong> Only when you have pressed that button and your browser has been sent to the service's key page. Nothing starts it when the app launches, on a schedule, or in the background. There is no other way to reach it.</li>
+  <li><strong>When the watching stops.</strong> At the first clipboard value matching the shape of that service's key, or when you cancel or close the flow window, or when the time limit of 60 seconds runs out &mdash; whichever happens first. Every one of those exits goes through a single stopping point, so none of them can leave it running; closing the window stops it even if the flow is torn down mid-check.</li>
+  <li><strong>What is kept. Nothing.</strong> Clipboard text that holds no key is discarded where it is read and is never copied anywhere. When a key is found, only the key itself is taken; whatever surrounded it is discarded with the read and is never written to a log, a file, or an error message. No record is kept of what your clipboard held, before or after a match.</li>
+</ul>
+
+<h3>6.2 Translating a message you typed</h3>
+
+<p>When you use the feature that translates what you type, the app copies the text out of your chat program's input box using Ctrl+A and Ctrl+C, translates it, and pastes the translation back. <strong>The contents of your clipboard from before are then put back.</strong> The clipboard is used here as the means of moving text in and out of another program's input box, and the text that passes through it is your own message, which is sent to your chosen translation service as described in section 5.</p>
+
+<h2 id="keyboard">7. Keyboard</h2>
+
+<p>Stated first, plainly: <strong>the app installs a global low-level keyboard hook.</strong> This is a Windows facility that lets a program see key presses before the program you are typing into receives them, and it is how the app is able to translate what you typed at the moment you press Enter, instead of making you copy it elsewhere.</p>
+
+<p>What that hook does here is narrow, and all of it is limited to the following:</p>
+
+<ul>
+  <li>The hook is installed when the app starts and stays installed while the app is running. It does nothing at all unless translation is running <em>and</em> you have chosen a typing mode that translates what you type; otherwise every key passes straight through it.</li>
+  <li><strong>It looks at one key: Enter.</strong> Every other key is passed on without being examined.</li>
+  <li>Enter is acted upon only when the conversation window the app is reading is the window you are typing into. Enter pressed anywhere else is passed on untouched.</li>
+  <li>Shift+Enter, which starts a new line in most chat programs, is never touched.</li>
+  <li>The only decision the hook makes is whether to let that Enter through or hold it back so the text can be translated first.</li>
+</ul>
+
+<div class="box">
+  <h3>Why this is not a keylogger</h3>
+  <p>A keylogger records the characters you type and reports them somewhere. This app does neither. It does not read the characters of your typing at all: no key other than Enter is examined, no keystroke is stored, and no keystroke is transmitted.</p>
+  <p>The text that gets translated does not come from the hook. It is copied out of your chat program's input box after Enter is pressed, by the clipboard method described in section 6.2 &mdash; a message you had finished writing and were about to send, not a record of your typing.</p>
+</div>
+
+<h2 id="api-key">8. Storage of your API key</h2>
+
+<p>The key you enter is stored in the app's settings file, a single file named <code>settings.json</code> kept in the per-user application data folder. Its exact location depends on how the app was installed &mdash; an ordinary installation and a Microsoft Store package do not put it in the same place &mdash; but in either case it is a location belonging to the Windows user account you are signed in as.</p>
+
+<p>Inside that file the key is encrypted with the Windows Data Protection API (DPAPI) under the <strong>current user</strong> scope, with an additional application-specific entropy value.</p>
+
+<p>The practical effect is that the stored key can be decrypted only by your Windows account on that computer. Copied to another account or another machine, it cannot be read; the app treats it as if no key were set.</p>
+
+<p>Your key is sent only to the service it belongs to, as that request's authentication header. It is not sent to us, and it is not sent to any other service.</p>
+
+<h2 id="memory">9. Translation memory</h2>
+
+<p>While the app runs it keeps the translations it has already obtained, so that scrolling a conversation back and forth does not pay for the same message twice.</p>
+
+<ul>
+  <li>This memory exists only in the running program. It is never written to disk.</li>
+  <li>It holds at most 1,500 messages; beyond that the oldest are dropped.</li>
+  <li>It is emptied immediately whenever you change the service, the language pair, or the tone.</li>
+  <li><strong>It is gone when you close the app.</strong> Nothing is exported or saved on exit.</li>
+</ul>
+
+<h2 id="on-device">10. What is stored on your device</h2>
+
+<p>The app writes one file: <code>settings.json</code>, in the per-user application data folder described in section 8. It contains your settings and nothing else:</p>
+
+<ul>
+  <li>The selected service, and for each service you have configured: the encrypted API key, the chosen model, and the address if that service uses one you supplied.</li>
+  <li>The language to read, the language to translate into, the language your own messages are translated into, and the tone.</li>
+  <li>The display mode and the typing mode.</li>
+  <li>Colours of the frame, the bubbles, and the bubble text.</li>
+  <li>Scan interval, overlay font size, overlay opacity.</li>
+  <li>The frame's position, width and height, and the height of the input opening.</li>
+  <li>Whether the app minimizes to the notification area, the app's display language, and whether the original text is shown beneath the translation.</li>
+</ul>
+
+<p><strong>What this file does not contain:</strong> no message text, no translations, no screen captures, and no history of any of them. The app writes no other file &mdash; no log file, no cache, no temporary copy of anything it read.</p>
+
+<h2 id="telemetry">11. Analytics, crash reporting, and other network activity</h2>
+
+<p><strong>There is none.</strong> Specifically:</p>
+
+<ul>
+  <li>No analytics or usage-measurement service of any kind is present in the app.</li>
+  <li>No crash or error reports are transmitted. When an unexpected error occurs the app shows you a message and continues; nothing about it leaves your computer.</li>
+  <li>The app performs no update check and no licence or activation check.</li>
+  <li>Apart from the requests to your chosen translation service described in section 5, the app makes no network requests at all.</li>
+</ul>
+
+<p>Separately from network activity, the app can open your default web browser: at a service's key page when you press <strong>Get API key</strong>, and at the linked pages in the settings screen when you click them. Those are pages you asked to open, and the app sends nothing with them.</p>
+
+<h2 id="children">12. Children</h2>
+
+<p>The app is a general-purpose tool and is not directed at children. We collect no personal information from anyone, of any age, because the app transmits nothing to us. If you are a parent or guardian and have a question about this, please write to us at the address below.</p>
+
+<h2 id="changes">13. Changes to this policy</h2>
+
+<p>If the app's behaviour changes in a way that affects anything stated here, this page is updated and the effective date at the top is changed with it. The version published here is always the one that describes the current release.</p>
+
+<h2 id="contact">14. Contact</h2>
+
+<p>Questions about this policy, or about what the app does, can be sent to <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>.</p>
+
+<footer>
+  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 2 August 2026 &middot; <a href="ko.html">한국어</a></p>
+</footer>
+
+</main>
+</body>
+</html>
