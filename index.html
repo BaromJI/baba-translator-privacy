@@ -88,7 +88,7 @@
   <p class="meta">
     <strong>BABA Real-Time Chat Translator</strong><br>
     Publisher: BABA SOFTWARE, Republic of Korea<br>
-    Effective date: 2 August 2026<br>
+    Effective date: 3 August 2026<br>
     Contact: <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>
   </p>
   <p class="lang"><a href="ko.html">한국어로 보기</a></p>
@@ -192,21 +192,16 @@
 
 <h2 id="clipboard">6. Clipboard</h2>
 
-<p>The app uses the Windows clipboard for two separate purposes, and for nothing else.</p>
+<p>This app uses the clipboard for two purposes only.</p>
 
-<h3>6.1 Waiting for an API key during key registration</h3>
+<ol>
+  <li><strong>Retrieving what you typed</strong> &mdash; When you type a message in a chat input box and press the send key, the app issues a copy command to retrieve that text. This text is sent to the translation service you selected.</li>
+  <li><strong>Inserting the translation</strong> &mdash; The translated text is placed on the clipboard and pasted into the input box.</li>
+</ol>
 
-<p>Two of the services offer a registration flow, reached by the <strong>Get API key</strong> button, that opens your browser at the service's key page and then waits for you to copy the key. While that flow is on screen the app reads the clipboard every 0.5 seconds. Clipboard content larger than 256 KB is not examined.</p>
+<p>Any existing clipboard content is preserved before the operation and restored afterward. In two cases the translated text remains on the clipboard: when you use the app's own input box, and when no target window could be found and the app asks you to paste manually.</p>
 
-<ul>
-  <li><strong>When the watching starts.</strong> Only when you have pressed that button and your browser has been sent to the service's key page. Nothing starts it when the app launches, on a schedule, or in the background. There is no other way to reach it.</li>
-  <li><strong>When the watching stops.</strong> At the first clipboard value matching the shape of that service's key, or when you cancel or close the flow window, or when the time limit of 60 seconds runs out &mdash; whichever happens first. Every one of those exits goes through a single stopping point, so none of them can leave it running; closing the window stops it even if the flow is torn down mid-check.</li>
-  <li><strong>What is kept. Nothing.</strong> Clipboard text that holds no key is discarded where it is read and is never copied anywhere. When a key is found, only the key itself is taken; whatever surrounded it is discarded with the read and is never written to a log, a file, or an error message. No record is kept of what your clipboard held, before or after a match.</li>
-</ul>
-
-<h3>6.2 Translating a message you typed</h3>
-
-<p>When you use the feature that translates what you type, the app copies the text out of your chat program's input box using Ctrl+A and Ctrl+C, translates it, and pastes the translation back. <strong>The contents of your clipboard from before are then put back.</strong> The clipboard is used here as the means of moving text in and out of another program's input box, and the text that passes through it is your own message, which is sent to your chosen translation service as described in section 5.</p>
+<p>This app does not monitor the clipboard on a schedule. The clipboard is read only at the moment these operations run. Content you previously copied is read solely to restore it, and is never transmitted or written to disk.</p>
 
 <h2 id="keyboard">7. Keyboard</h2>
 
@@ -225,7 +220,7 @@
 <div class="box">
   <h3>Why this is not a keylogger</h3>
   <p>A keylogger records the characters you type and reports them somewhere. This app does neither. It does not read the characters of your typing at all: no key other than Enter is examined, no keystroke is stored, and no keystroke is transmitted.</p>
-  <p>The text that gets translated does not come from the hook. It is copied out of your chat program's input box after Enter is pressed, by the clipboard method described in section 6.2 &mdash; a message you had finished writing and were about to send, not a record of your typing.</p>
+  <p>The text that gets translated does not come from the hook. It is copied out of your chat program's input box after Enter is pressed, by the clipboard method described in section 6 &mdash; a message you had finished writing and were about to send, not a record of your typing.</p>
 </div>
 
 <h2 id="api-key">8. Storage of your API key</h2>
@@ -291,7 +286,7 @@
 <p>Questions about this policy, or about what the app does, can be sent to <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>.</p>
 
 <footer>
-  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 2 August 2026 &middot; <a href="ko.html">한국어</a></p>
+  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 3 August 2026 &middot; <a href="ko.html">한국어</a></p>
 </footer>
 
 </main>
