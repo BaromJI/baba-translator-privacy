@@ -111,7 +111,7 @@
 
 <p>The app's window has a transparent opening &mdash; the reading hole &mdash; which you place over the message list of your chat program. The rectangle of the screen behind that opening is what the app captures. Its position and size are yours to set. Nothing outside it is captured, and the app never captures the whole screen.</p>
 
-<p>Capture happens while translation is running, which begins when you press the start button and ends when you press it again. The interval between captures is 0.7 seconds by default and can be changed in settings.</p>
+<p>Capture happens while translation is running, which begins when you press the start button and ends when you press it again. The interval between captures is 1.5 seconds by default and can be changed in settings.</p>
 
 <p>There is one further capture, and it is stated here so the description is complete. When you stop translating, the translations already on screen are deliberately left in place so you can finish reading them. While they remain, the app takes a 48&times;48 pixel thumbprint of the same rectangle once per second and compares it with the previous one, so that it can remove those translations when the conversation underneath them has moved on. No text recognition is performed on these, and nothing about them is transmitted. They are compared on your device and discarded.</p>
 
@@ -162,6 +162,7 @@
 <div class="box">
   <h3>How to keep images on your device</h3>
   <p>In the app, set the language to read to a specific language rather than &ldquo;detect automatically&rdquo;, and make sure Windows has the recognizer for that language installed. Reading then happens entirely on your computer and no image is transmitted.</p>
+  <p>If the source language is left on &ldquo;detect automatically&rdquo;, the app may select a specific language on its own based on the characters it reads on screen. From that point, captures are processed on your device and images are no longer sent externally. You are notified when this happens, and you can switch back to &ldquo;detect automatically&rdquo; at any time.</p>
   <p>The recognized <em>text</em> is still sent to your chosen translation service, as described in the next section. Choosing a language changes whether the picture is sent; it does not make the app translate without a service.</p>
 </div>
 
@@ -253,7 +254,7 @@
   <li>The language to read, the language to translate into, the language your own messages are translated into, and the tone.</li>
   <li>The display mode and the typing mode.</li>
   <li>Colours of the frame, the bubbles, and the bubble text.</li>
-  <li>Scan interval, overlay font size, overlay opacity.</li>
+  <li>Scan interval, overlay font size, overlay opacity, frame opacity.</li>
   <li>The frame's position, width and height, and the height of the input opening.</li>
   <li>Whether the app minimizes to the notification area, the app's display language, and whether the original text is shown beneath the translation.</li>
 </ul>
