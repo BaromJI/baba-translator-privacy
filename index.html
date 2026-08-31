@@ -88,7 +88,7 @@
   <p class="meta">
     <strong>BABA Real-Time Chat Translator</strong><br>
     Publisher: BABA SOFTWARE, Republic of Korea<br>
-    Effective date: 17 August 2026<br>
+    Effective date: 1 September 2026<br>
     Contact: <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>
   </p>
   <p class="lang"><a href="ko.html">한국어로 보기</a></p>
@@ -104,7 +104,7 @@
   <li><strong>Translation requires sending your message text to one outside service</strong> &mdash; the one you chose and configured with your own API key. That service is the only recipient.</li>
   <li><strong>Captured images do not leave your device.</strong> The exception applies only when the app is reading by screen capture, and then only if the language is set to automatic detection or Windows cannot read the language you named; in that case the picture is sent to Google as a PNG. Google is the only service the app can send a picture to. <a href="#images">Section 4</a> explains how to avoid it.</li>
   <li><strong>Nothing captured, recognized or translated is written to disk.</strong> The only file the app writes is its own settings file.</li>
-  <li><strong>No analytics, no crash reporting, no update checks, no licence checks.</strong></li>
+  <li><strong>No analytics, no crash reporting, no update checks.</strong> The app does check whether you have bought it, and whether a trial period is still running. What that sends and stores is set out in <a href="#telemetry">section 11</a>.</li>
 </ul>
 
 <h2 id="capture">2. Screen capture</h2>
@@ -288,9 +288,39 @@
 <ul>
   <li>No analytics or usage-measurement service of any kind is present in the app.</li>
   <li>No crash or error reports are transmitted. When an unexpected error occurs the app shows you a message and continues; nothing about it leaves your computer.</li>
-  <li>The app performs no update check and no licence or activation check.</li>
-  <li>Apart from the requests to your chosen translation service described in section 5, the app makes no network requests at all.</li>
+  <li>The app performs no update check.</li>
+  <li>Apart from the requests to your chosen translation service described in section 5, and the <strong>purchase and trial checks</strong> described below, the app makes no network requests at all.</li>
 </ul>
+
+<h3>Checking whether you have bought the app</h3>
+
+<p>This app is paid, so on startup it asks the store it was installed from <strong>whether you own the full version</strong>. The Windows version asks the Microsoft Store; the Android version asks Google Play.</p>
+
+<p><strong>The app neither receives nor asks for your account details.</strong> The store answers only "owned" or "not owned"; your name, email address and account identifier are never passed to the app. This is why the app has no sign-in of its own — the store app on your device is already signed in and does the identifying, and this app only receives the answer.</p>
+
+<p>Your purchase is recorded by the store against your account, not by this app. That is why reinstalling the app, or moving to a new device, carries your purchase with it.</p>
+
+<h3>Checking the trial period (Android version)</h3>
+
+<p>The Android version offers a seven-day free trial. Recording when the trial began on the device itself would mean that reinstalling the app resets it, so the app keeps that timestamp on <strong>a server operated by this app's developer</strong> (Google Firebase Realtime Database, Singapore).</p>
+
+<p>Two things are stored there, and nothing else:</p>
+
+<ul>
+  <li><strong>A hash of a device identifier.</strong> Android gives each app a distinct identifier (<code>ANDROID_ID</code>); the app mixes in a value of its own and computes a SHA-256 hash of the result. <strong>The original identifier is never stored or transmitted</strong>, and neither it nor your identity can be recovered from the hash.</li>
+  <li><strong>The time the trial started</strong>, recorded by the server from its own clock.</li>
+</ul>
+
+<p>What the app does <em>not</em> do with that identifier:</p>
+
+<ul>
+  <li><strong>It is never combined with an advertising identifier.</strong></li>
+  <li>It is not linked to a Google account, email address, phone number, or any other personal information.</li>
+  <li>It is not used to track you or to record how you use the app. The stored time is used only to work out whether the trial period still has time left.</li>
+  <li>No conversation text, captured image or translation is ever sent to this server. The only case where such things leave your device is the translation service described in <a href="#third-parties">section 5</a>.</li>
+</ul>
+
+<p>Once the full version has been bought there is no reason to check a trial period, and the app stops contacting this server. The Windows version does not use this server at all, because the Microsoft Store manages its trial period directly.</p>
 
 <p>Separately from network activity, the app can open your default web browser: at a service's key page when you press <strong>Get API key</strong>, and at the linked pages in the settings screen when you click them. Those are pages you asked to open, and the app sends nothing with them.</p>
 
@@ -307,7 +337,7 @@
 <p>Questions about this policy, or about what the app does, can be sent to <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>.</p>
 
 <footer>
-  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 17 August 2026 &middot; <a href="ko.html">한국어</a></p>
+  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 1 September 2026 &middot; <a href="ko.html">한국어</a></p>
 </footer>
 
 </main>
