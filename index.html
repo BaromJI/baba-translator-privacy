@@ -88,7 +88,7 @@
   <p class="meta">
     <strong>BABA Real-Time Chat Translator</strong><br>
     Publisher: BABA SOFTWARE, Republic of Korea<br>
-    Effective date: 1 September 2026<br>
+    Effective date: 20 September 2026<br>
     Contact: <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>
   </p>
   <p class="lang"><a href="ko.html">한국어로 보기</a></p>
@@ -100,7 +100,7 @@
 
 <ul>
   <li><strong>BABA SOFTWARE operates no servers.</strong> The app contains no address belonging to us. Nothing is sent to us, and we receive no information about you or your conversations.</li>
-  <li><strong>The app obtains conversation text in one of two ways:</strong> it reads the text your chat program publishes to assistive technologies such as screen readers, or it captures a rectangle of the screen and recognizes the characters in that picture. The app decides which; you can pin it to the second method in settings. Screen capture continues either way, and what is captured is never the whole screen &mdash; only one rectangle whose position and size you set.</li>
+  <li><strong>The app obtains conversation text in one of two ways:</strong> it reads the text your chat program publishes to assistive technologies such as screen readers, or it captures a rectangle of the screen and recognizes the characters in that picture. The channel the first method uses has a different name on each operating system &mdash; the Windows version uses UI Automation, the <strong>Android version uses the accessibility service</strong>. On Android it is off by default, you have to turn it on yourself in Android settings, and you can turn it off again at any time (<a href="#images">section 4</a>). The app decides which method to use; you can pin it to the second one in settings. Screen capture continues either way, and what is captured is never the whole screen &mdash; only one rectangle whose position and size you set.</li>
   <li><strong>Translation requires sending your message text to one outside service</strong> &mdash; the one you chose and configured with your own API key. That service is the only recipient.</li>
   <li><strong>Captured images do not leave your device.</strong> The exception applies only when the app is reading by screen capture, and then only if the language is set to automatic detection or Windows cannot read the language you named; in that case the picture is sent to Google as a PNG. Google is the only service the app can send a picture to. <a href="#images">Section 4</a> explains how to avoid it.</li>
   <li><strong>Nothing captured, recognized or translated is written to disk.</strong> The only file the app writes is its own settings file.</li>
@@ -140,6 +140,8 @@
 <p>The app obtains conversation text in one of two ways, and which one is in use decides whether an image is transmitted.</p>
 
 <p><strong>First, taking the text directly from the window.</strong> Most chat programs publish the text on their screen to the operating system for the benefit of assistive technologies such as screen readers. The app reads that directly. In this mode no image is transmitted anywhere; only the sentences taken from the window go to your translation service.</p>
+
+<p>That channel has a different name on each operating system. The Windows version uses UI Automation; the <strong>Android version uses the accessibility service (AccessibilityService).</strong> On Android this is off by default and works only once you turn the app's accessibility service on yourself in Android settings. With it on, the app receives the contents of whatever chat app is open on screen and uses them <strong>for translation only</strong>. They are not collected or stored for anything else, they never reach the maker of this app, and <strong>password fields are not read.</strong> This app is not an accessibility tool; it uses that channel to read the text it has to translate. You can turn it off again in Android settings at any time, and with it off the app works by the second method below.</p>
 
 <p>The app keeps capturing the screen while it reads this way. It does so to tell whether the screen has changed, to measure how far the conversation has scrolled, and to find the left and right edges of a message in programs that do not draw speech bubbles. It does not read characters out of those pictures, and it does not transmit them anywhere.</p>
 
@@ -337,7 +339,7 @@
 <p>Questions about this policy, or about what the app does, can be sent to <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>.</p>
 
 <footer>
-  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 1 September 2026 &middot; <a href="ko.html">한국어</a></p>
+  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 20 September 2026 &middot; <a href="ko.html">한국어</a></p>
 </footer>
 
 </main>
