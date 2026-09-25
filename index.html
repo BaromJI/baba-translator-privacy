@@ -88,7 +88,7 @@
   <p class="meta">
     <strong>BABA Real-Time Chat Translator</strong><br>
     Publisher: BABA SOFTWARE, Republic of Korea<br>
-    Effective date: 20 September 2026<br>
+    Effective date: 25 September 2026<br>
     Contact: <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>
   </p>
   <p class="lang"><a href="ko.html">한국어로 보기</a></p>
@@ -99,11 +99,11 @@
 <p>BABA Real-Time Chat Translator (&ldquo;the app&rdquo;) reads a rectangle of your screen that you position yourself, recognizes the messages inside it, and translates them. This section states the whole of it in short; the sections that follow give the detail.</p>
 
 <ul>
-  <li><strong>BABA SOFTWARE operates no servers.</strong> The app contains no address belonging to us. Nothing is sent to us, and we receive no information about you or your conversations.</li>
+  <li><strong>Your conversations never come to BABA SOFTWARE.</strong> There is no server of ours involved in translation, and we receive no information about your conversations, translations, screen captures or API keys. The only server we operate is a record used to give the Android version's free trial once per device; it holds a hash of a device identifier and the time the trial began, nothing else (<a href="#telemetry">section 11</a>).</li>
   <li><strong>The app obtains conversation text in one of two ways:</strong> it reads the text your chat program publishes to assistive technologies such as screen readers, or it captures a rectangle of the screen and recognizes the characters in that picture. The channel the first method uses has a different name on each operating system &mdash; the Windows version uses UI Automation, the <strong>Android version uses the accessibility service</strong>. On Android it is off by default, you have to turn it on yourself in Android settings, and you can turn it off again at any time (<a href="#images">section 4</a>). The app decides which method to use; you can pin it to the second one in settings. Screen capture continues either way, and what is captured is never the whole screen &mdash; only one rectangle whose position and size you set.</li>
   <li><strong>Translation requires sending your message text to one outside service</strong> &mdash; the one you chose and configured with your own API key. That service is the only recipient.</li>
-  <li><strong>Captured images do not leave your device.</strong> The exception applies only when the app is reading by screen capture, and then only if the language is set to automatic detection or Windows cannot read the language you named; in that case the picture is sent to Google as a PNG. Google is the only service the app can send a picture to. <a href="#images">Section 4</a> explains how to avoid it.</li>
-  <li><strong>Nothing captured, recognized or translated is written to disk.</strong> The only file the app writes is its own settings file.</li>
+  <li><strong>Captured images do not leave your device.</strong> The exception applies only when the app is reading by screen capture, and then only if the language is set to automatic detection or Windows cannot read the language you named; in that case the picture is sent to Google as a PNG. Google is the only service the app can send a picture to. <a href="#images">Section 4</a> explains how to avoid it. <strong>The Android version never sends a picture anywhere</strong> &mdash; its character recognition always runs on the device.</li>
+  <li><strong>Nothing captured, recognized or translated is written to disk.</strong> The only files the app writes are its own settings. The single exception is on Android, when you yourself press the diagnostics button in settings: one screen is then kept as a file on the device (<a href="#on-device">section 10</a>).</li>
   <li><strong>No analytics, no crash reporting, no update checks.</strong> The app does check whether you have bought it, and whether a trial period is still running. What that sends and stores is set out in <a href="#telemetry">section 11</a>.</li>
 </ul>
 
@@ -142,6 +142,8 @@
 <p><strong>First, taking the text directly from the window.</strong> Most chat programs publish the text on their screen to the operating system for the benefit of assistive technologies such as screen readers. The app reads that directly. In this mode no image is transmitted anywhere; only the sentences taken from the window go to your translation service.</p>
 
 <p>That channel has a different name on each operating system. The Windows version uses UI Automation; the <strong>Android version uses the accessibility service (AccessibilityService).</strong> On Android this is off by default and works only once you turn the app's accessibility service on yourself in Android settings. With it on, the app receives the contents of whatever chat app is open on screen and uses them <strong>for translation only</strong>. They are not collected or stored for anything else, they never reach the maker of this app, and <strong>password fields are not read.</strong> This app is not an accessibility tool; it uses that channel to read the text it has to translate. You can turn it off again in Android settings at any time, and with it off the app works by the second method below.</p>
+
+<p><strong>On Android, no picture leaves the device even with the second method.</strong> The Android version always recognizes characters with an on-device recognizer (Google ML Kit); it has no path for sending a picture to your translation service or anywhere else. The table below and &ldquo;How to keep images on your device&rdquo; apply to the Windows version.</p>
 
 <p>The app keeps capturing the screen while it reads this way. It does so to tell whether the screen has changed, to measure how far the conversation has scrolled, and to find the left and right edges of a message in programs that do not draw speech bubbles. It does not read characters out of those pictures, and it does not transmit them anywhere.</p>
 
@@ -253,6 +255,8 @@
 
 <p>The practical effect is that the stored key can be decrypted only by your Windows account on that computer. Copied to another account or another machine, it cannot be read; the app treats it as if no key were set.</p>
 
+<p>On <strong>Android</strong>, the key is stored in <code>settings.json</code> in the app's private storage, encrypted (AES-GCM) with a key created inside the device's Android Keystore. That key never leaves the Keystore, so copying the file to another device does not open your API key. The app has Android backup turned off, so its settings are not uploaded to Google Drive or any other backup. Uninstalling the app or clearing its data removes the key as well.</p>
+
 <p>Your key is sent only to the service it belongs to, as that request's authentication header. It is not sent to us, and it is not sent to any other service.</p>
 
 <h2 id="memory">9. Translation memory</h2>
@@ -268,7 +272,7 @@
 
 <h2 id="on-device">10. What is stored on your device</h2>
 
-<p>The app writes one file: <code>settings.json</code>, in the per-user application data folder described in section 8. It contains your settings and nothing else:</p>
+<p>The Windows version writes one file: <code>settings.json</code>, in the per-user application data folder described in section 8. It contains your settings and nothing else. The Android version is described separately under &ldquo;Android&rdquo; below.</p>
 
 <ul>
   <li>The selected service, and for each service you have configured: the encrypted API key, the chosen model, and the address if that service uses one you supplied.</li>
@@ -279,9 +283,23 @@
   <li>Scan interval, overlay font size, overlay opacity, frame opacity.</li>
   <li>The frame's position, width and height, and the height of the input opening.</li>
   <li>Whether the app minimizes to the notification area, the app's display language, and whether the original text is shown beneath the translation.</li>
+  <li>Whether you have agreed to the privacy notice (and which edition of it), and whether you completed the first-run guide.</li>
 </ul>
 
-<p><strong>What this file does not contain:</strong> no message text, no translations, no screen captures, and no history of any of them. The app writes no other file &mdash; no log file, no cache, no temporary copy of anything it read.</p>
+<p><strong>What this file does not contain:</strong> no message text, no translations, no screen captures, and no history of any of them. The Windows version writes no other file &mdash; no log file, no cache, no temporary copy of anything it read.</p>
+
+<h3>Android</h3>
+
+<p>The Android version keeps two settings files in the app's private storage. Other apps cannot read that storage, and it is removed when you uninstall the app.</p>
+
+<ul>
+  <li><code>settings.json</code> &mdash; the same file in the same format as on Windows, with the same items as the list above. The API key is encrypted the Android way (<a href="#api-key">section 8</a>). Items the Android version does not use, such as the frame's colour and position, stay at their defaults.</li>
+  <li><code>phone.json</code> &mdash; settings for this device's screen: the reading area you set for each screen shape (folded, unfolded, portrait, landscape), whether the translate button beside the input box is shown, whether to read through the accessibility service, whether that service has ever been on (so the app can tell you if a force-stop turned it off), whether bubble colours are taken from the screen, and whether this device honours the app's capture-blocking flag.</li>
+</ul>
+
+<p>Neither file contains message text, translations or screen captures. There is no log file and no cache.</p>
+
+<p><strong>Diagnostics file (only when you ask for it).</strong> If you press &ldquo;Save what the next pass sees&rdquo; in settings, a capture of the next screen the app reads (<code>reading.png</code>) and the text it read from that screen (<code>reading.txt</code>) are saved in the app's external files folder (<code>Android/data/com.baba.chattranslator/files</code>). It exists to look into problems and is never created unless you press it. <strong>These files contain your conversation as it appeared.</strong> The app never sends them anywhere, and pressing the button again overwrites them. They are removed when you uninstall the app, and you can delete them yourself at any time with a file manager. The settings screen says the same thing.</p>
 
 <h2 id="telemetry">11. Analytics, crash reporting, and other network activity</h2>
 
@@ -366,7 +384,7 @@
 <p>Questions about this policy, or about what the app does, can be sent to <a href="mailto:baba_software@hotmail.com">baba_software@hotmail.com</a>.</p>
 
 <footer>
-  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 20 September 2026 &middot; <a href="ko.html">한국어</a></p>
+  <p>BABA SOFTWARE, Republic of Korea &middot; Effective 25 September 2026 &middot; <a href="ko.html">한국어</a></p>
 </footer>
 
 </main>
